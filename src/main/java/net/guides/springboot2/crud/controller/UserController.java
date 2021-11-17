@@ -1,7 +1,6 @@
 package net.guides.springboot2.crud.controller;
 
 import net.guides.springboot2.crud.model.User;
-import net.guides.springboot2.crud.repository.EmployeeRepository;
 import net.guides.springboot2.crud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
