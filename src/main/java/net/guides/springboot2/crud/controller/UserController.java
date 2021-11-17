@@ -2,6 +2,7 @@ package net.guides.springboot2.crud.controller;
 
 import lombok.RequiredArgsConstructor;
 import net.guides.springboot2.crud.model.User;
+import net.guides.springboot2.crud.repository.ResponsibilityRepository;
 import net.guides.springboot2.crud.repository.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserRepository userRepository;
+    private final ResponsibilityRepository responsibilityRepository;
 
     @GetMapping("/signup")
     public String showSignUpForm(User user) {
@@ -36,6 +38,7 @@ public class UserController {
     @GetMapping("/")
     public String showUserList(Model model) {
         model.addAttribute("users", userRepository.findAll());
+        model.addAttribute("responsibilities", responsibilityRepository.findAll());
         return "index";
     }
 

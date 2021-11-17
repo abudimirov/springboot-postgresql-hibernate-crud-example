@@ -32,5 +32,33 @@
         </div>
         <p><a href="/signup">Добавить нового сотрудника</a></p>
     </div>
+
+    <div th:switch="${responsibilities}">
+        <h2 th:case="null">Пока нет ни одной обязанности!</h2>
+        <div th:case="*">
+            <h2>Обязанности</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Заместитель</th>
+                    <th>Ссылка</th>
+                    <th>Описание</th>
+                    <th>Редактировать</th>
+                    <th>Удалить</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="responsibility : ${responsibilities}">
+                    <td th:text="${responsibility.deputyId}"></td>
+                    <td th:text="${responsibility.link}"></td>
+                    <td th:text="${responsibility.description}"></td>
+                    <td><a th:href="@{/edit/{id}(id=${responsibility.id})}">Редактировать</a></td>
+                    <td><a th:href="@{/delete/{id}(id=${responsibility.id})}">Удалить</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/add-responsibility">Добавить новую обязанность</a></p>
+    </div>
 </body>
 </html>
