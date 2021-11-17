@@ -2,20 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update user</title>
+    <title>Редактирование пользователя</title>
 </head>
 <body>
     <form action="#"
           th:action="@{/update/{id}(id=${user.id})}"
           th:object="${user}"
           method="post">
-        <label for="name">Name</label>
-        <input type="text" th:field="*{name}" id="name" placeholder="Name">
+        <label for="name">Имя *</label>
+        <input type="text" th:field="*{name}" id="name" placeholder="Имя">
         <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-        <label for="email">Email</label>
-        <input type="text" th:field="*{email}" id="email" placeholder="Email">
-        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
-        <input type="submit" value="Update User">
+        <label for="surname">Фамилия *</label>
+        <input type="text" th:field="*{surname}" id="surname" placeholder="Фамилия">
+        <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span>
+        <label for="middleName">Отчество</label>
+        <input type="text" th:field="*{middleName}" id="middleName" placeholder="Отчество">
+        <span th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"></span>
+        <input type="submit" value="Сохранить информацию">
     </form>
 </body>
 </html>

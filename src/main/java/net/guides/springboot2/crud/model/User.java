@@ -13,9 +13,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Имя - обязательное поле")
     private String name;
 
-    @NotBlank(message = "Email is mandatory")
-    private String email;
+    @NotBlank(message = "Фамилия - обязательное поле")
+    private String surname;
+
+    private String middleName;
 }
