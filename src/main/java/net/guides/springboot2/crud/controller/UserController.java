@@ -1,8 +1,8 @@
 package net.guides.springboot2.crud.controller;
 
+import lombok.RequiredArgsConstructor;
 import net.guides.springboot2.crud.model.User;
 import net.guides.springboot2.crud.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @GetMapping("/signup")
     public String showSignUpForm(User user) {
