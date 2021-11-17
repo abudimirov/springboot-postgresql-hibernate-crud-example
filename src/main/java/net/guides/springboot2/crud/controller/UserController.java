@@ -30,10 +30,10 @@ public class UserController {
         }
 
         userRepository.save(user);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String showUserList(Model model) {
         model.addAttribute("users", userRepository.findAll());
         return "index";
@@ -57,7 +57,7 @@ public class UserController {
         }
 
         userRepository.save(user);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
     @GetMapping("/delete/{id}")
@@ -65,7 +65,7 @@ public class UserController {
         User user = userRepository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         userRepository.delete(user);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
 }
