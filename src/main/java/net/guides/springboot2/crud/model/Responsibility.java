@@ -13,6 +13,10 @@ public class Responsibility {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
+
     private long deputyId;
 
     @NotBlank(message = "Необходимо добавить ссылку")

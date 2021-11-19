@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Set;
 
 @Data
 @Entity
@@ -20,4 +21,7 @@ public class User {
     private String surname;
 
     private String middleName;
+
+    @OneToMany(mappedBy="user")
+    private Set<Responsibility> responsibilitySet;
 }

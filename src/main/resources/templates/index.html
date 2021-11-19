@@ -15,6 +15,7 @@
                     <th>Имя</th>
                     <th>Фамилия</th>
                     <th>Отчество</th>
+                    <th>Обязанности</th>
                     <th>Редактировать</th>
                     <th>Удалить</th>
                 </tr>
@@ -24,6 +25,11 @@
                     <td th:text="${user.name}"></td>
                     <td th:text="${user.surname}"></td>
                     <td th:text="${user.middleName}"></td>
+                    <td th:each="responsibility : ${user.responsibilitySet}">
+                        <span>${responsibility.deputyId}</span>
+                        <span>${responsibility.link}</span>
+                        <span>${responsibility.description}</span>
+                    </td>
                     <td><a th:href="@{/edit/{id}(id=${user.id})}">Редактировать</a></td>
                     <td><a th:href="@{/delete/{id}(id=${user.id})}">Удалить</a></td>
                 </tr>
